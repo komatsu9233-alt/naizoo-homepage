@@ -27,13 +27,24 @@ section{padding:88px 0}.section-head{margin-bottom:34px}.section-head .eyebrow{m
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.gallery .photo-frame{height:340px}.gallery .photo-frame:first-child img{object-position:center}
 .contact{background:linear-gradient(120deg,#292117,#15120f 70%);text-align:center}.contact h2{font-size:clamp(28px,4vw,44px);margin:10px 0}.contact p{color:var(--muted)}
 footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--line)}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:720px){.navlinks{gap:12px;font-size:10px}.navlinks a:nth-child(1),.navlinks a:nth-child(3){display:none}.brand img{width:48px;height:48px}.hero{min-height:660px}.hero-inner{padding-top:135px}.intro,.info{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.interior-photo{height:260px}.gallery{grid-template-columns:1fr}.gallery .photo-frame{height:250px}section{padding:66px 0}.info dl div{grid-template-columns:105px 1fr}}
+@media(max-width:720px){.navlinks{gap:12px;font-size:10px}.navlinks a:nth-child(1),.navlinks a:nth-child(4){display:none}.brand img{width:48px;height:48px}.hero{min-height:660px}.hero-inner{padding-top:135px}.intro,.info{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.interior-photo{height:260px}.gallery{grid-template-columns:1fr}.gallery .photo-frame{height:250px}section{padding:66px 0}.info dl div{grid-template-columns:105px 1fr}}
+
+.menu-section{background:#101010}.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.price-panel{background:#191919;border:1px solid #493b2b;overflow:hidden}
+.price-panel h3{margin:0;background:#a71920;color:#fff;text-align:center;padding:14px 10px;font-size:20px;letter-spacing:.06em}
+.price-table{width:100%;border-collapse:collapse}.price-table th,.price-table td{padding:12px 16px;border-bottom:1px solid #39342d}
+.price-table thead th{font-size:12px;color:#c6a66a;font-weight:500;text-align:left}.price-table thead th:last-child{text-align:right}
+.price-table tbody th{font-size:14px;text-align:left;font-weight:600}.price-table tbody td{text-align:right;white-space:nowrap}
+.price-main{display:block;font-weight:800;font-size:18px;color:#f1eee7}.price-table small{display:block;font-size:11px;color:#b9b4aa}
+.original-menu{margin-top:28px;border:1px solid #493b2b;padding:14px 18px}.original-menu summary{cursor:pointer;color:#c6a66a}
+.original-menu img{display:block;width:min(100%,780px);height:auto;margin:18px auto 0}
+@media(max-width:720px){.price-grid{grid-template-columns:1fr}.price-table th,.price-table td{padding:11px 12px}.price-panel h3{font-size:18px}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#top"><img src="assets/naizoo-logo.jpg" alt="NAIZOOロゴ"><span>NAIZOO<small>内臓精肉店 もつ屋</small></span></a>
-  <nav class="navlinks"><a href="#about">NAIZOOについて</a><a href="#products">商品紹介</a><a href="#business">業者様へ</a><a href="#access">店舗情報</a><a href="https://www.instagram.com/naizoo92/" target="_blank" rel="noopener">Instagram</a><a href="https://lin.ee/rjCmi5d" target="_blank" rel="noopener">LINE</a></nav>
+  <nav class="navlinks"><a href="#about">NAIZOOについて</a><a href="#products">商品紹介</a><a href="#menu">価格表</a><a href="#business">業者様へ</a><a href="#access">店舗情報</a><a href="https://www.instagram.com/naizoo92/" target="_blank" rel="noopener">Instagram</a><a href="https://lin.ee/rjCmi5d" target="_blank" rel="noopener">LINE</a></nav>
 </div></header>
 <main id="top">
   <section class="hero">
@@ -42,7 +53,7 @@ footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--li
       <div class="eyebrow">OFFAL MEAT SPECIALTY SHOP / UEDA, NAGANO</div>
       <h1>内臓肉の可能性を、<br><span class="gold">もっと。</span></h1>
       <p>素材を見極め、丁寧に仕立てる。<br>牛・豚の内臓肉、ホルモンを中心に取り扱う<br>内臓精肉店もつ屋NAIZOO。</p>
-      <a class="btn primary" href="#products">取り扱い商品を見る</a>
+      <a class="btn primary" href="#menu">商品・価格表を見る</a>
       <a class="btn" href="#access">店舗情報・アクセス</a>
     </div>
   </section>
@@ -66,6 +77,13 @@ footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--li
     </div>
   </div></section>
 
+<section id="menu" class="menu-section"><div class="wrap">
+<div class="section-head"><div class="eyebrow">NAIZOO PRICE LIST</div><h2>商品メニュー・価格表</h2>
+<p>すべて200g単価です。税込価格を大きく、税抜価格を併記しています。</p></div>
+<div class="price-grid"><div class="price-panel"><h3>豚内臓メニュー</h3><table class="price-table"><thead><tr><th>商品名</th><th>200g価格</th></tr></thead><tbody><tr><th scope="row">豚タン</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚ノドナンコツ全般</th><td><span class="price-main">¥350</span><small>税抜 ¥324</small></td></tr><tr><th scope="row">豚ハツ</th><td><span class="price-main">¥300</span><small>税抜 ¥277</small></td></tr><tr><th scope="row">豚ハラミ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚レバー</th><td><span class="price-main">¥400</span><small>税抜 ¥370</small></td></tr><tr><th scope="row">豚ガツ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚大腸</th><td><span class="price-main">¥460</span><small>税抜 ¥425</small></td></tr><tr><th scope="row">豚小腸</th><td><span class="price-main">¥380</span><small>税抜 ¥351</small></td></tr><tr><th scope="row">豚コブクロ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr></tbody></table></div><div class="price-panel"><h3>牛内臓・精肉メニュー</h3><table class="price-table"><thead><tr><th>商品名</th><th>200g価格</th></tr></thead><tbody><tr><th scope="row">レバー</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハラミ・サガリ</th><td><span class="price-main">¥5,400</span><small>税抜 ¥5,000</small></td></tr><tr><th scope="row">ミノ</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハチノス</th><td><span class="price-main">¥800</span><small>税抜 ¥740</small></td></tr><tr><th scope="row">センマイ刺し</th><td><span class="price-main">¥1,200</span><small>税抜 ¥1,111</small></td></tr><tr><th scope="row">ギアラ</th><td><span class="price-main">¥600</span><small>税抜 ¥555</small></td></tr><tr><th scope="row">小腸（マルチョウ）</th><td><span class="price-main">¥540</span><small>税抜 ¥500</small></td></tr><tr><th scope="row">大腸（シマチョウ）</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハート</th><td><span class="price-main">¥600</span><small>税抜 ¥555</small></td></tr><tr><th scope="row">タン</th><td><span class="price-main">¥6,000</span><small>税抜 ¥5,555</small></td></tr><tr><th scope="row">テール</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">上レバー</th><td><span class="price-main">¥1,000</span><small>税抜 ¥925</small></td></tr><tr><th scope="row">牛ほほ肉</th><td><span class="price-main">¥1,200</span><small>税抜 ¥1,111</small></td></tr><tr><th scope="row">牛スジ</th><td><span class="price-main">¥560</span><small>税抜 ¥518</small></td></tr></tbody></table></div></div>
+<p class="notice">入荷・処理状況により、販売商品や在庫が異なります。ご来店前にお問い合わせください。</p>
+<details class="original-menu"><summary>元のメニュー画像を見る</summary><img src="assets/menu-price-list.jpg" alt="NAIZOOの商品メニュー・200g価格表" loading="lazy"></details>
+</div></section>
   <section id="business"><div class="wrap intro">
     <div><div class="section-head"><div class="eyebrow">FOR BUSINESS</div><h2>飲食店様・事業者様へ</h2></div>
       <p>飲食店様・事業者様からの商品に関するご相談も承ります。</p>
