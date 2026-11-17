@@ -27,7 +27,7 @@ section{padding:88px 0}.section-head{margin-bottom:34px}.section-head .eyebrow{m
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.gallery .photo-frame{height:340px}.gallery .photo-frame:first-child img{object-position:center}
 .contact{background:linear-gradient(120deg,#292117,#15120f 70%);text-align:center}.contact h2{font-size:clamp(28px,4vw,44px);margin:10px 0}.contact p{color:var(--muted)}
 footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--line)}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:720px){.navlinks{gap:12px;font-size:10px}.navlinks a:nth-child(1),.navlinks a:nth-child(4){display:none}.brand img{width:48px;height:48px}.hero{min-height:660px}.hero-inner{padding-top:135px}.intro,.info{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.interior-photo{height:260px}.gallery{grid-template-columns:1fr}.gallery .photo-frame{height:250px}section{padding:66px 0}.info dl div{grid-template-columns:105px 1fr}}
+@media(max-width:720px){.navlinks{gap:12px;font-size:10px}.navlinks a:nth-child(1),.navlinks a:nth-child(3){display:none}.brand img{width:48px;height:48px}.hero{min-height:660px}.hero-inner{padding-top:135px}.intro,.info{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.interior-photo{height:260px}.gallery{grid-template-columns:1fr}.gallery .photo-frame{height:250px}section{padding:66px 0}.info dl div{grid-template-columns:105px 1fr}}
 
 .menu-section{background:#101010}.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
 .price-panel{background:#191919;border:1px solid #493b2b;overflow:hidden}
@@ -39,6 +39,12 @@ footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--li
 .original-menu{margin-top:28px;border:1px solid #493b2b;padding:14px 18px}.original-menu summary{cursor:pointer;color:#c6a66a}
 .original-menu img{display:block;width:min(100%,780px);height:auto;margin:18px auto 0}
 @media(max-width:720px){.price-grid{grid-template-columns:1fr}.price-table th,.price-table td{padding:11px 12px}.price-panel h3{font-size:18px}}
+
+.feature-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:26px;align-items:center}
+.feature-image{width:100%;height:auto;display:block;border:1px solid #493b2b}
+.feature-logo{width:100%;max-width:410px;display:block;margin:0 auto 18px;background:#fff}
+.feature-copy p{color:var(--muted);line-height:1.9}
+@media(max-width:720px){.feature-grid{grid-template-columns:1fr}.feature-logo{max-width:300px}}
 </style>
 </head>
 <body>
@@ -66,6 +72,20 @@ footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--li
       <p class="notice">商品は入荷・処理状況により日々変わります。お探しの商品は事前にお問い合わせください。</p>
     </div>
     <div class="photo-frame interior-photo"><img src="assets/shop-interior.jpg" alt="もつ屋NAIZOOの店内"></div>
+  </div></section>
+
+
+  <section id="dry-processing" class="band"><div class="wrap">
+    <div class="section-head"><div class="eyebrow">NAIZOO CRAFT</div><h2>ドライ内臓処理へのこだわり</h2><p>素材に向き合い、内臓肉の新たな味わいを追求します。</p></div>
+    <div class="feature-grid">
+      <img class="feature-image" src="assets/dry-offal-processing.jpg" alt="NAIZOO ドライ内臓処理のご案内" loading="lazy">
+      <div class="feature-copy">
+        <img class="feature-logo" src="assets/naizoo-cow-pig-logo.jpg" alt="牛と豚を描いたNAIZOOのロゴ" loading="lazy">
+        <h3>内臓肉を、もっと美味しく。</h3>
+        <p>余分な水分を取り除き、旨みと風味を凝縮するための乾燥処理。NAIZOOの取り組みを、画像とともにご紹介します。</p>
+        <p class="notice">取扱商品・加工状況は日によって異なります。詳しくはお問い合わせください。</p>
+      </div>
+    </div>
   </div></section>
 
   <section id="products" class="band"><div class="wrap">
