@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="長野県上田市の内臓精肉店もつ屋NAIZOO。牛・豚の内臓肉、ホルモンを中心に取り扱っています。" name="description"/>
+<meta content="#111111" name="theme-color"/>
+<title>内臓精肉店もつ屋NAIZOO｜上田市の内臓肉専門店</title>
+<style>
+:root{--bg:#101010;--panel:#191919;--gold:#c6a66a;--red:#b82025;--cream:#f1eee7;--muted:#b9b4aa;--line:#38342d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.85}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 42px));margin:auto}
+header{position:absolute;top:0;left:0;width:100%;z-index:3;border-bottom:1px solid #ffffff2a;background:#09090966}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.1em;font-size:18px}.brand img{width:58px;height:58px;object-fit:cover;border-radius:50%;border:1px solid #ffffff66}.brand small{display:block;font-size:9px;letter-spacing:.18em;color:var(--gold);font-weight:500}.navlinks{display:flex;gap:22px;font-size:12px;color:#eee}
+.hero{min-height:740px;display:flex;align-items:center;position:relative;overflow:hidden;background:#111}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;opacity:.55}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080808f2 0%,#080808c9 43%,#08080855 100%),linear-gradient(0deg,#101010 0%,transparent 30%)}
+.hero-inner{position:relative;z-index:1;padding:155px 0 115px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+h1{font-size:clamp(39px,7vw,78px);line-height:1.2;letter-spacing:.07em;margin:22px 0 22px;font-weight:900}.hero p{color:#eee;max-width:560px;font-size:16px}.gold{color:var(--gold)}
+.btn{display:inline-block;border:1px solid var(--gold);padding:12px 24px;margin:22px 10px 0 0;font-size:13px;letter-spacing:.08em;transition:.2s}.btn.primary{background:var(--gold);color:#111;font-weight:800}.btn:hover{opacity:.8}
+section{padding:88px 0}.section-head{margin-bottom:34px}.section-head .eyebrow{margin-bottom:8px}.section-head h2{font-size:clamp(27px,4vw,42px);margin:0;letter-spacing:.06em}.section-head p{color:var(--muted);max-width:680px}
+.intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}.photo-frame{overflow:hidden;border:1px solid #5a4b37;background:#1b1814}.photo-frame img{display:block;width:100%;height:100%;object-fit:cover}.interior-photo{height:390px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--panel);border:1px solid var(--line);padding:27px}.card .num{color:var(--gold);font-size:11px;letter-spacing:.2em}.card h3{font-size:21px;margin:10px 0}.card p{color:var(--muted);font-size:14px;margin:0}
+.band{background:#171512;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.notice{border-left:2px solid var(--red);padding:4px 0 4px 18px;color:var(--muted)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:42px}.info dl{margin:0}.info dl div{display:grid;grid-template-columns:125px 1fr;padding:13px 0;border-bottom:1px solid var(--line)}dt{color:var(--gold);font-size:13px}dd{margin:0;font-size:14px}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.gallery .photo-frame{height:340px}.gallery .photo-frame:first-child img{object-position:center}
+.contact{background:linear-gradient(120deg,#292117,#15120f 70%);text-align:center}.contact h2{font-size:clamp(28px,4vw,44px);margin:10px 0}.contact p{color:var(--muted)}
+footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--line)}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:720px){.navlinks{gap:12px;font-size:10px}.navlinks a:nth-child(1),.navlinks a:nth-child(3){display:none}.brand img{width:48px;height:48px}.hero{min-height:660px}.hero-inner{padding-top:135px}.intro,.info{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.interior-photo{height:260px}.gallery{grid-template-columns:1fr}.gallery .photo-frame{height:250px}section{padding:66px 0}.info dl div{grid-template-columns:105px 1fr}}
+
+.menu-section{background:#101010}.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.price-panel{background:#191919;border:1px solid #493b2b;overflow:hidden}
+.price-panel h3{margin:0;background:#a71920;color:#fff;text-align:center;padding:14px 10px;font-size:20px;letter-spacing:.06em}
+.price-table{width:100%;border-collapse:collapse}.price-table th,.price-table td{padding:12px 16px;border-bottom:1px solid #39342d}
+.price-table thead th{font-size:12px;color:#c6a66a;font-weight:500;text-align:left}.price-table thead th:last-child{text-align:right}
+.price-table tbody th{font-size:14px;text-align:left;font-weight:600}.price-table tbody td{text-align:right;white-space:nowrap}
+.price-main{display:block;font-weight:800;font-size:18px;color:#f1eee7}.price-table small{display:block;font-size:11px;color:#b9b4aa}
+.original-menu{margin-top:28px;border:1px solid #493b2b;padding:14px 18px}.original-menu summary{cursor:pointer;color:#c6a66a}
+.original-menu img{display:block;width:min(100%,780px);height:auto;margin:18px auto 0}
+@media(max-width:720px){.price-grid{grid-template-columns:1fr}.price-table th,.price-table td{padding:11px 12px}.price-panel h3{font-size:18px}}
+
+.feature-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:26px;align-items:center}
+.feature-image{width:100%;height:auto;display:block;border:1px solid #493b2b}
+.feature-logo{width:100%;max-width:410px;display:block;margin:0 auto 18px;background:#fff}
+.feature-copy p{color:var(--muted);line-height:1.9}
+@media(max-width:720px){.feature-grid{grid-template-columns:1fr}.feature-logo{max-width:300px}}
+</style>
+<style>
+:root{--bg:#100e0d;--panel:#201b18;--gold:#d9b58b;--red:#a32a2d;--cream:#f5f0e8;--muted:#c4b8ac;--line:#4a3830}
+body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,.88);backdrop-filter:blur(10px);position:relative}.nav{height:auto;min-height:86px;gap:20px}.brand{font-size:19px}.brand small{color:#d6aa81}.navlinks{flex-wrap:wrap;justify-content:flex-end;row-gap:5px}.navlinks a:hover{color:var(--gold)}
+.hero{min-height:660px;background:radial-gradient(circle at 80% 50%,#5e2a22 0%,#17100f 70%)}.hero-photo{opacity:.38;filter:sepia(.3) contrast(1.16)}.hero:after{background:linear-gradient(90deg,#120b0af7 0%,#1c100fdb 50%,#160e0d55 100%),linear-gradient(0deg,#100e0d,transparent 30%)}.hero-inner{padding:105px 0 125px}.hero h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(42px,7vw,83px);line-height:1.36;letter-spacing:.09em}.hero p{border-left:3px solid var(--red);padding-left:18px;max-width:560px}.eyebrow{color:#d8a67d;font-weight:700;letter-spacing:.22em}.gold{color:#e7bb94}
+.btn.primary{background:#a52b2c;color:white;border-color:#a52b2c}.btn{border-color:#b99b7d}.section-head h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;line-height:1.4}.band{background:#1a1513}.card{border-top:3px solid #8c2929;background:linear-gradient(145deg,#29211d,#1b1715)}.card h3{font-family:"Yu Mincho",serif}.price-panel{border-color:#684039}.price-panel h3{background:#832326}.price-main{color:#fff5ed}.photo-frame{border-color:#6c493d}.contact{background:linear-gradient(130deg,#45221e,#17100f 72%)}
+.butcher-strip{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid #694237;background:#2b1a17}.butcher-strip div{padding:22px 15px;text-align:center;border-right:1px solid #694237}.butcher-strip div:last-child{border-right:0}.butcher-strip strong{display:block;font-size:19px;font-family:"Yu Mincho",serif;letter-spacing:.13em}.butcher-strip small{font-size:10px;letter-spacing:.18em;color:#d7a788}.butcher-strip+section{padding-top:85px}
+@media(max-width:720px){.nav{min-height:76px}.navlinks{gap:10px}.hero{min-height:620px}.hero-inner{padding:88px 0 100px}.hero h1{font-size:clamp(38px,10vw,57px)}.butcher-strip strong{font-size:13px}.butcher-strip small{font-size:8px}.butcher-strip div{padding:17px 7px}}
+</style></head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#top"><img alt="NAIZOOロゴ" src="assets/naizoo-logo.jpg"/><span>NAIZOO<small>内臓精肉店 もつ屋</small></span></a>
+<nav class="navlinks"><a href="#about">NAIZOOについて</a><a href="#products">商品紹介</a><a href="#menu">価格表</a><a href="#business">業者様へ</a><a href="#access">店舗情報</a><a href="https://www.instagram.com/naizoo92/" rel="noopener" target="_blank">Instagram</a><a href="https://lin.ee/rjCmi5d" rel="noopener" target="_blank">LINE</a></nav>
+</div></header>
+<main id="top">
+<section class="hero">
+<img alt="もつ屋NAIZOOの店舗外観" class="hero-photo" src="assets/shop-exterior.jpg"/>
+<div class="wrap hero-inner">
+<div class="eyebrow">SHINSHU UEDA · BUTCHER &amp; OFFAL SPECIALIST</div>
+<h1>肉を知る。<br/>部位を活かす。<br/><span class="gold">精肉の、その先へ。</span></h1>
+<p>牛・豚の内臓肉から精肉まで。素材を見極め、捌き、仕立てる。長野県上田市の内臓精肉店、もつ屋 NAIZOO。</p>
+<a class="btn primary" href="#menu">商品・価格表を見る</a>
+<a class="btn" href="#access">店舗情報・アクセス</a>
+</div>
+</section><div class="butcher-strip"><div><strong>見極める</strong><small>SELECT</small></div><div><strong>捌く</strong><small>BUTCHER</small></div><div><strong>仕立てる</strong><small>CRAFT</small></div></div>
+<section id="about"><div class="wrap intro">
+<div>
+<div class="section-head"><div class="eyebrow">ABOUT NAIZOO</div><h2>肉を売るだけではない。肉を仕立てる精肉店。</h2></div>
+<p>もつ屋NAIZOOは、牛・豚の内臓肉を中心に扱う内臓精肉店です。</p>
+<p>部位ごとの個性や状態を見極め、日々の商品をご用意しています。定番のホルモンから、その時々の入荷・加工状況による商品まで。店頭で出会う楽しさも大切にしています。</p>
+<p class="notice">商品は入荷・処理状況により日々変わります。お探しの商品は事前にお問い合わせください。</p>
+</div>
+<div class="photo-frame interior-photo"><img alt="もつ屋NAIZOOの店内" src="assets/shop-interior.jpg"/></div>
+</div></section>
+<section class="band" id="dry-processing"><div class="wrap">
+<div class="section-head"><div class="eyebrow">NAIZOO CRAFT</div><h2>ドライ内臓処理へのこだわり</h2><p>素材に向き合い、内臓肉の新たな味わいを追求します。</p></div>
+<div class="feature-grid">
+<img alt="NAIZOO ドライ内臓処理のご案内" class="feature-image" loading="lazy" src="assets/dry-offal-processing.jpg"/>
+<div class="feature-copy">
+<img alt="牛と豚を描いたNAIZOOのロゴ" class="feature-logo" loading="lazy" src="assets/naizoo-cow-pig-logo.jpg"/>
+<h3>内臓肉を、もっと美味しく。</h3>
+<p>余分な水分を取り除き、旨みと風味を凝縮するための乾燥処理。NAIZOOの取り組みを、画像とともにご紹介します。</p>
+<p class="notice">取扱商品・加工状況は日によって異なります。詳しくはお問い合わせください。</p>
+</div>
+</div>
+</div></section>
+<section class="band" id="products"><div class="wrap">
+<div class="section-head"><div class="eyebrow">OUR PRODUCTS</div><h2>精肉店のショーケース</h2><p>牛・豚の内臓肉、精肉、日々の仕立て。素材と部位の個性をお届けします。</p></div>
+<div class="cards">
+<article class="card"><div class="num">01 / BEEF</div><h3>牛内臓肉・ホルモン</h3><p>レバー、小腸、大腸、ミノなど。部位ごとの特徴を活かした商品をご用意します。</p></article>
+<article class="card"><div class="num">02 / PORK</div><h3>豚内臓肉・ホルモン</h3><p>ガツ、ヒモ、シロなど。入荷・処理状況に合わせて販売します。</p></article>
+<article class="card"><div class="num">03 / DAILY</div><h3>精肉・日替わりの仕立て</h3><p>牛ほほ肉、牛すじなどの精肉や、入荷・加工状況に応じた限定品をご案内します。</p></article>
+</div>
+</div></section>
+<section class="menu-section" id="menu"><div class="wrap">
+<div class="section-head"><div class="eyebrow">NAIZOO PRICE LIST</div><h2>商品メニュー・価格表</h2>
+<p>すべて200g単価です。税込価格を大きく、税抜価格を併記しています。</p></div>
+<div class="price-grid"><div class="price-panel"><h3>豚内臓メニュー</h3><table class="price-table"><thead><tr><th>商品名</th><th>200g価格</th></tr></thead><tbody><tr><th scope="row">豚タン</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚ノドナンコツ全般</th><td><span class="price-main">¥350</span><small>税抜 ¥324</small></td></tr><tr><th scope="row">豚ハツ</th><td><span class="price-main">¥300</span><small>税抜 ¥277</small></td></tr><tr><th scope="row">豚ハラミ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚レバー</th><td><span class="price-main">¥400</span><small>税抜 ¥370</small></td></tr><tr><th scope="row">豚ガツ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr><tr><th scope="row">豚大腸</th><td><span class="price-main">¥460</span><small>税抜 ¥425</small></td></tr><tr><th scope="row">豚小腸</th><td><span class="price-main">¥380</span><small>税抜 ¥351</small></td></tr><tr><th scope="row">豚コブクロ</th><td><span class="price-main">¥500</span><small>税抜 ¥462</small></td></tr></tbody></table></div><div class="price-panel"><h3>牛内臓・精肉メニュー</h3><table class="price-table"><thead><tr><th>商品名</th><th>200g価格</th></tr></thead><tbody><tr><th scope="row">レバー</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハラミ・サガリ</th><td><span class="price-main">¥5,400</span><small>税抜 ¥5,000</small></td></tr><tr><th scope="row">ミノ</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハチノス</th><td><span class="price-main">¥800</span><small>税抜 ¥740</small></td></tr><tr><th scope="row">センマイ刺し</th><td><span class="price-main">¥1,200</span><small>税抜 ¥1,111</small></td></tr><tr><th scope="row">ギアラ</th><td><span class="price-main">¥600</span><small>税抜 ¥555</small></td></tr><tr><th scope="row">小腸（マルチョウ）</th><td><span class="price-main">¥540</span><small>税抜 ¥500</small></td></tr><tr><th scope="row">大腸（シマチョウ）</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">ハート</th><td><span class="price-main">¥600</span><small>税抜 ¥555</small></td></tr><tr><th scope="row">タン</th><td><span class="price-main">¥6,000</span><small>税抜 ¥5,555</small></td></tr><tr><th scope="row">テール</th><td><span class="price-main">¥700</span><small>税抜 ¥648</small></td></tr><tr><th scope="row">上レバー</th><td><span class="price-main">¥1,000</span><small>税抜 ¥925</small></td></tr><tr><th scope="row">牛ほほ肉</th><td><span class="price-main">¥1,200</span><small>税抜 ¥1,111</small></td></tr><tr><th scope="row">牛スジ</th><td><span class="price-main">¥560</span><small>税抜 ¥518</small></td></tr></tbody></table></div></div>
+<p class="notice">入荷・処理状況により、販売商品や在庫が異なります。ご来店前にお問い合わせください。</p>
+<details class="original-menu"><summary>元のメニュー画像を見る</summary><img alt="NAIZOOの商品メニュー・200g価格表" loading="lazy" src="assets/menu-price-list.jpg"/></details>
+</div></section>
+<section id="business"><div class="wrap intro">
+<div><div class="section-head"><div class="eyebrow">FOR BUSINESS</div><h2>飲食店様・事業者様へ</h2></div>
+<p>飲食店様・事業者様からの商品に関するご相談も承ります。</p>
+<p>ご希望の部位、数量、用途などをお知らせください。内容を確認のうえ、対応可能な商品や条件をご案内します。</p>
+<p class="notice">在庫・取扱部位・数量は時期により異なります。まずはお問い合わせください。</p>
+</div>
+<div class="photo-frame interior-photo"><img alt="NAIZOO店内の様子" src="assets/shop-interior.jpg"/></div>
+</div></section>
+<section class="band"><div class="wrap">
+<div class="section-head"><div class="eyebrow">OUR SHOP</div><h2>店の風景</h2><p>実際の店舗写真をご紹介します。</p></div>
+<div class="gallery">
+<div class="photo-frame"><img alt="店舗外観" src="assets/shop-exterior.jpg"/></div>
+<div class="photo-frame"><img alt="店舗内観" src="assets/shop-interior.jpg"/></div>
+</div>
+</div></section>
+<section id="access"><div class="wrap info">
+<div><div class="section-head"><div class="eyebrow">SHOP INFORMATION</div><h2>店舗情報</h2></div>
+<dl>
+<div><dt>店名</dt><dd>内臓精肉店もつ屋NAIZOO</dd></div>
+<div><dt>住所</dt><dd>長野県上田市古里113-5 1階西</dd></div>
+<div><dt>営業時間</dt><dd>16:30〜20:30</dd></div>
+<div><dt>定休日</dt><dd>不定休</dd></div>
+<div><dt>予約販売</dt><dd>営業時間外もご相談可能</dd></div>
+</dl>
+</div>
+<div><div class="section-head"><div class="eyebrow">VISIT &amp; INQUIRY</div><h2>ご来店前に</h2></div>
+<p>商品は日によって異なります。お目当ての商品がある場合や、営業時間外の予約販売をご希望の場合は、事前にお問い合わせください。</p>
+<p class="notice">最新の商品情報・入荷情報は公式Instagramで発信しています。商品のお取り置きや営業時間外の予約販売、事業者様のお取引相談はInstagramのDMまたは公式LINEからお問い合わせください。</p>
+</div>
+</div></section>
+<section class="contact"><div class="wrap">
+<div class="eyebrow">CONTACT NAIZOO</div><h2>商品・お取引のご相談は<br/>お気軽にお問い合わせください。</h2>
+<p>最新の入荷情報や商品紹介を発信中。個人のお客様・飲食店様からのご相談もDMで承ります。</p>
+<a class="btn primary" href="https://lin.ee/rjCmi5d" rel="noopener" target="_blank">LINEで問い合わせる</a>
+<a class="btn" href="https://www.instagram.com/naizoo92/" rel="noopener" target="_blank">公式Instagramを見る・DMで相談する</a>
+<a class="btn" href="#access">店舗情報を確認する</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© NAIZOO / 内臓精肉店もつ屋</span><span>長野県上田市</span></div></footer>
+</body>
+</html>
