@@ -46,6 +46,21 @@ footer{padding:28px 0;color:#8e887e;font-size:11px;border-top:1px solid var(--li
 .feature-logo{width:100%;max-width:410px;display:block;margin:0 auto 18px;background:#fff}
 .feature-copy p{color:var(--muted);line-height:1.9}
 @media(max-width:720px){.feature-grid{grid-template-columns:1fr}.feature-logo{max-width:300px}}
+
+/* NAIZOO: real butcher photography */
+.hero-photo{filter:brightness(.38) saturate(.9)}
+.hero-inner{position:relative;z-index:2}
+.real-gallery{padding:86px 0;background:#110f0e}
+.real-gallery .lead{max-width:700px;margin-bottom:32px}
+.real-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.real-grid figure{margin:0;position:relative;overflow:hidden;background:#241b18;border:1px solid #49352c}
+.real-grid figure:first-child{grid-row:span 2}
+.real-grid img{width:100%;height:100%;min-height:235px;max-height:470px;object-fit:cover;display:block}
+.real-grid figure:first-child img{height:100%;max-height:none}
+.real-grid figcaption{position:absolute;bottom:0;left:0;right:0;padding:35px 18px 15px;background:linear-gradient(transparent,#080706dd);font-size:16px;font-weight:700;letter-spacing:.06em}
+.craft-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.craft-photo-grid figure{margin:0}.craft-photo-grid img{width:100%;height:300px;object-fit:cover;display:block;border:1px solid #5a4b37}.craft-photo-grid figcaption{color:#d4b39a;font-size:13px;margin-top:9px}
+@media(max-width:720px){.real-gallery{padding:58px 0}.real-grid{grid-template-columns:1fr 1fr;gap:9px}.real-grid figure:first-child{grid-column:span 2;grid-row:auto}.real-grid img{min-height:145px;height:180px}.real-grid figure:first-child img{height:245px}.real-grid figcaption{font-size:12px;padding:28px 10px 10px}.craft-photo-grid{grid-template-columns:1fr}.craft-photo-grid img{height:230px}.hero h1{font-size:clamp(34px,8.5vw,48px);overflow-wrap:anywhere}.hero p{font-size:15px;line-height:1.9}.contact h2{font-size:clamp(25px,7vw,40px);overflow-wrap:anywhere}}
 </style>
 <style>
 :root{--bg:#100e0d;--panel:#201b18;--gold:#d9b58b;--red:#a32a2d;--cream:#f5f0e8;--muted:#c4b8ac;--line:#4a3830}
@@ -54,6 +69,21 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 .btn.primary{background:#a52b2c;color:white;border-color:#a52b2c}.btn{border-color:#b99b7d}.section-head h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;line-height:1.4}.band{background:#1a1513}.card{border-top:3px solid #8c2929;background:linear-gradient(145deg,#29211d,#1b1715)}.card h3{font-family:"Yu Mincho",serif}.price-panel{border-color:#684039}.price-panel h3{background:#832326}.price-main{color:#fff5ed}.photo-frame{border-color:#6c493d}.contact{background:linear-gradient(130deg,#45221e,#17100f 72%)}
 .butcher-strip{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid #694237;background:#2b1a17}.butcher-strip div{padding:22px 15px;text-align:center;border-right:1px solid #694237}.butcher-strip div:last-child{border-right:0}.butcher-strip strong{display:block;font-size:19px;font-family:"Yu Mincho",serif;letter-spacing:.13em}.butcher-strip small{font-size:10px;letter-spacing:.18em;color:#d7a788}.butcher-strip+section{padding-top:85px}
 @media(max-width:720px){.nav{min-height:76px}.navlinks{gap:10px}.hero{min-height:620px}.hero-inner{padding:88px 0 100px}.hero h1{font-size:clamp(38px,10vw,57px)}.butcher-strip strong{font-size:13px}.butcher-strip small{font-size:8px}.butcher-strip div{padding:17px 7px}}
+
+/* NAIZOO: real butcher photography */
+.hero-photo{filter:brightness(.38) saturate(.9)}
+.hero-inner{position:relative;z-index:2}
+.real-gallery{padding:86px 0;background:#110f0e}
+.real-gallery .lead{max-width:700px;margin-bottom:32px}
+.real-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.real-grid figure{margin:0;position:relative;overflow:hidden;background:#241b18;border:1px solid #49352c}
+.real-grid figure:first-child{grid-row:span 2}
+.real-grid img{width:100%;height:100%;min-height:235px;max-height:470px;object-fit:cover;display:block}
+.real-grid figure:first-child img{height:100%;max-height:none}
+.real-grid figcaption{position:absolute;bottom:0;left:0;right:0;padding:35px 18px 15px;background:linear-gradient(transparent,#080706dd);font-size:16px;font-weight:700;letter-spacing:.06em}
+.craft-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.craft-photo-grid figure{margin:0}.craft-photo-grid img{width:100%;height:300px;object-fit:cover;display:block;border:1px solid #5a4b37}.craft-photo-grid figcaption{color:#d4b39a;font-size:13px;margin-top:9px}
+@media(max-width:720px){.real-gallery{padding:58px 0}.real-grid{grid-template-columns:1fr 1fr;gap:9px}.real-grid figure:first-child{grid-column:span 2;grid-row:auto}.real-grid img{min-height:145px;height:180px}.real-grid figure:first-child img{height:245px}.real-grid figcaption{font-size:12px;padding:28px 10px 10px}.craft-photo-grid{grid-template-columns:1fr}.craft-photo-grid img{height:230px}.hero h1{font-size:clamp(34px,8.5vw,48px);overflow-wrap:anywhere}.hero p{font-size:15px;line-height:1.9}.contact h2{font-size:clamp(25px,7vw,40px);overflow-wrap:anywhere}}
 </style></head>
 <body>
 <header><div class="wrap nav">
@@ -62,7 +92,7 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 </div></header>
 <main id="top">
 <section class="hero">
-<img alt="もつ屋NAIZOOの店舗外観" class="hero-photo" src="assets/shop-exterior.jpg"/>
+<img alt="もつ屋NAIZOOの店舗外観" class="hero-photo" src="assets/naizoo-real-offal.jpg"/>
 <div class="wrap hero-inner">
 <div class="eyebrow">SHINSHU UEDA · BUTCHER &amp; OFFAL SPECIALIST</div>
 <h1>肉を知る。<br/>部位を活かす。<br/><span class="gold">精肉の、その先へ。</span></h1>
@@ -80,6 +110,13 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 </div>
 <div class="photo-frame interior-photo"><img alt="もつ屋NAIZOOの店内" src="assets/shop-interior.jpg"/></div>
 </div></section>
+<section class="real-gallery" id="real-meat"><div class="wrap">
+<div class="section-head"><div class="eyebrow">REAL MEAT · REAL CRAFT</div><h2>素材と向き合う、精肉の現場。</h2><p class="lead">内臓肉の一つひとつに個性がある。素材の状態を見極め、部位に合わせて手をかける。NAIZOOの仕事を実際の写真でご紹介します。</p></div>
+<div class="real-grid">
+<figure><img loading="lazy" src="assets/naizoo-real-offal.jpg" alt="作業台に並ぶ実際の内臓肉"/><figcaption>部位を見極め、仕立てる</figcaption></figure>
+<figure><img loading="lazy" src="assets/naizoo-fresh-liver.jpg" alt="処理台に並べられたレバーなどの内臓肉"/><figcaption>新鮮な素材と向き合う</figcaption></figure>
+<figure><img loading="lazy" src="assets/naizoo-liver-detail.jpg" alt="加工前のレバーの状態"/><figcaption>素材の状態を確かめる</figcaption></figure>
+</div></div></section>
 <section class="band" id="dry-processing"><div class="wrap">
 <div class="section-head"><div class="eyebrow">NAIZOO CRAFT</div><h2>ドライ内臓処理へのこだわり</h2><p>素材に向き合い、内臓肉の新たな味わいを追求します。</p></div>
 <div class="feature-grid">
@@ -90,6 +127,10 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 <p>余分な水分を取り除き、旨みと風味を凝縮するための乾燥処理。NAIZOOの取り組みを、画像とともにご紹介します。</p>
 <p class="notice">取扱商品・加工状況は日によって異なります。詳しくはお問い合わせください。</p>
 </div>
+</div>
+<div class="craft-photo-grid">
+<figure><img loading="lazy" src="assets/naizoo-offal-preparation.jpg" alt="トレーに広げた内臓肉の下処理工程"/><figcaption>内臓肉の下処理・仕立て</figcaption></figure>
+<figure><img loading="lazy" src="assets/naizoo-dry-aging-room.jpg" alt="専用設備内の棚に並べられた肉"/><figcaption>乾燥・熟成工程の一場面</figcaption></figure>
 </div>
 </div></section>
 <section class="band" id="products"><div class="wrap">
