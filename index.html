@@ -84,11 +84,13 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 .craft-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
 .craft-photo-grid figure{margin:0}.craft-photo-grid img{width:100%;height:300px;object-fit:cover;display:block;border:1px solid #5a4b37}.craft-photo-grid figcaption{color:#d4b39a;font-size:13px;margin-top:9px}
 @media(max-width:720px){.real-gallery{padding:58px 0}.real-grid{grid-template-columns:1fr 1fr;gap:9px}.real-grid figure:first-child{grid-column:span 2;grid-row:auto}.real-grid img{min-height:145px;height:180px}.real-grid figure:first-child img{height:245px}.real-grid figcaption{font-size:12px;padding:28px 10px 10px}.craft-photo-grid{grid-template-columns:1fr}.craft-photo-grid img{height:230px}.hero h1{font-size:clamp(34px,8.5vw,48px);overflow-wrap:anywhere}.hero p{font-size:15px;line-height:1.9}.contact h2{font-size:clamp(25px,7vw,40px);overflow-wrap:anywhere}}
+</style><style>
+.order-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.order-item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#201b18;border:1px solid #60463b;padding:14px}.order-item strong{display:block;font-size:14px}.order-item small{color:#d9b58b}.order-item input{width:72px;padding:10px;background:#110e0d;color:white;border:1px solid #94725c;border-radius:4px;font-size:16px}.order-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}.order-fields label{font-size:13px;color:#e9d7c8}.order-fields input,.order-fields select,.order-fields textarea{display:block;width:100%;margin-top:6px;padding:13px;background:#1b1614;color:#fff;border:1px solid #806253;border-radius:4px;font:inherit;color-scheme:dark}.order-fields .wide{grid-column:1/-1}.order-summary{border:1px solid #8a5a43;padding:20px;background:#231a17}.order-summary strong{font-size:25px;color:#f5dfc8}.order-submit{background:#a52b2c;border:0;color:white;font-size:16px;font-weight:bold;padding:16px 25px;cursor:pointer;width:100%;margin-top:20px}.order-submit:disabled{opacity:.5;cursor:wait}.order-message{margin-top:12px;white-space:pre-wrap}.order-note{color:#c4b8ac;font-size:13px}@media(max-width:720px){.order-grid,.order-fields{grid-template-columns:1fr}}
 </style></head>
 <body>
 <header><div class="wrap nav">
 <a class="brand" href="#top"><img alt="NAIZOOロゴ" src="assets/naizoo-logo.jpg"/><span>NAIZOO<small>内臓精肉店 もつ屋</small></span></a>
-<nav class="navlinks"><a href="#about">NAIZOOについて</a><a href="#products">商品紹介</a><a href="#menu">価格表</a><a href="#business">業者様へ</a><a href="#access">店舗情報</a><a href="https://www.instagram.com/naizoo92/" rel="noopener" target="_blank">Instagram</a><a href="https://lin.ee/rjCmi5d" rel="noopener" target="_blank">LINE</a></nav>
+<nav class="navlinks"><a href="#about">NAIZOOについて</a><a href="#products">商品紹介</a><a href="#menu">価格表</a><a href="#order">事前注文</a><a href="#business">業者様へ</a><a href="#access">店舗情報</a><a href="https://www.instagram.com/naizoo92/" rel="noopener" target="_blank">Instagram</a><a href="https://lin.ee/rjCmi5d" rel="noopener" target="_blank">LINE</a></nav>
 </div></header>
 <main id="top">
 <section class="hero">
@@ -97,7 +99,8 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 <div class="eyebrow">SHINSHU UEDA · BUTCHER &amp; OFFAL SPECIALIST</div>
 <h1>肉を知る。<br/>部位を活かす。<br/><span class="gold">精肉の、その先へ。</span></h1>
 <p>牛・豚の内臓肉から精肉まで。素材を見極め、捌き、仕立てる。長野県上田市の内臓精肉店、もつ屋 NAIZOO。</p>
-<a class="btn primary" href="#menu">商品・価格表を見る</a>
+<a class="btn primary" href="#order">事前注文する</a>
+<a class="btn" href="#menu">商品・価格表を見る</a>
 <a class="btn" href="#access">店舗情報・アクセス</a>
 </div>
 </section><div class="butcher-strip"><div><strong>見極める</strong><small>SELECT</small></div><div><strong>捌く</strong><small>BUTCHER</small></div><div><strong>仕立てる</strong><small>CRAFT</small></div></div>
@@ -148,6 +151,7 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 <p class="notice">入荷・処理状況により、販売商品や在庫が異なります。ご来店前にお問い合わせください。</p>
 <details class="original-menu"><summary>元のメニュー画像を見る</summary><img alt="NAIZOOの商品メニュー・200g価格表" loading="lazy" src="assets/menu-price-list.jpg"/></details>
 </div></section>
+<section id="order" class="menu-section"><div class="wrap"><div class="section-head"><div class="eyebrow">PRE-ORDER · NAIZOO</div><h2>商品のお取り置き・事前注文</h2><p>お好きな商品を200g単位で選び、受取希望日時を指定してお申し込みください。</p></div><p class="notice">在庫・入荷状況によりご希望に添えない場合があります。ご注文は店舗からの確認連絡をもって確定します。表示金額は税込の目安です。</p><form id="naizoo-order-form"><h3>商品と数量を選択</h3><div class="order-grid" id="order-products"></div><div class="order-summary" style="margin-top:20px"><span id="order-count">0パック</span><div>税込合計（予定） <strong id="order-total">¥0</strong></div></div><h3>お客様情報・受取希望</h3><div class="order-fields"><label>お名前（必須）<input name="name" autocomplete="name" maxlength="80" required></label><label>電話番号（必須）<input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label><label>受取希望日（必須）<input name="pickupDate" type="date" required></label><label>受取希望時間（必須）<select name="pickupTime" required><option value="">選択してください</option><option>16:30〜17:00</option><option>17:00〜17:30</option><option>17:30〜18:00</option><option>18:00〜18:30</option><option>18:30〜19:00</option><option>19:00〜19:30</option><option>19:30〜20:00</option><option>20:00〜20:30</option><option>営業時間外（要相談）</option></select></label><label class="wide">備考・ご希望（任意）<textarea name="note" rows="3" maxlength="1000" placeholder="ご希望やご相談内容"></textarea></label></div><p class="order-note">お預かりするお名前・電話番号・注文内容は、ご注文の確認・連絡・商品のお渡しのために使用します。</p><button type="submit" class="order-submit" id="order-submit">注文内容を確認して送信</button><p id="order-message" class="order-message" role="status" aria-live="polite"></p></form></div></section>
 <section id="business"><div class="wrap intro">
 <div><div class="section-head"><div class="eyebrow">FOR BUSINESS</div><h2>飲食店様・事業者様へ</h2></div>
 <p>飲食店様・事業者様からの商品に関するご相談も承ります。</p>
@@ -187,5 +191,19 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 </div></section>
 </main>
 <footer><div class="wrap"><span>© NAIZOO / 内臓精肉店もつ屋</span><span>長野県上田市</span></div></footer>
-</body>
+<script>
+(()=>{
+const endpoint="https://script.google.com/macros/s/AKfycbzFY2Shj7efBVHhqDeOrYwibAk4CQkAPF1HaOPckfmjW9uvL-rcX65Z3xnchw8-nYRg/exec";
+const products=[["豚内臓メニュー", "豚タン", 500], ["豚内臓メニュー", "豚ノドナンコツ全般", 350], ["豚内臓メニュー", "豚ハツ", 300], ["豚内臓メニュー", "豚ハラミ", 500], ["豚内臓メニュー", "豚レバー", 400], ["豚内臓メニュー", "豚ガツ", 500], ["豚内臓メニュー", "豚大腸", 460], ["豚内臓メニュー", "豚小腸", 380], ["豚内臓メニュー", "豚コブクロ", 500], ["牛内臓・精肉メニュー", "レバー", 700], ["牛内臓・精肉メニュー", "ハラミ・サガリ", 5400], ["牛内臓・精肉メニュー", "ミノ", 700], ["牛内臓・精肉メニュー", "ハチノス", 800], ["牛内臓・精肉メニュー", "センマイ刺し", 1200], ["牛内臓・精肉メニュー", "ギアラ", 600], ["牛内臓・精肉メニュー", "小腸（マルチョウ）", 540], ["牛内臓・精肉メニュー", "大腸（シマチョウ）", 700], ["牛内臓・精肉メニュー", "ハート", 600], ["牛内臓・精肉メニュー", "タン", 6000], ["牛内臓・精肉メニュー", "テール", 700], ["牛内臓・精肉メニュー", "上レバー", 1000], ["牛内臓・精肉メニュー", "牛ほほ肉", 1200], ["牛内臓・精肉メニュー", "牛スジ", 560]];
+const list=document.getElementById('order-products');
+const yen=n=>'¥'+n.toLocaleString('ja-JP');
+products.forEach((p,i)=>{const item=document.createElement('label');item.className='order-item';const details=document.createElement('span');const name=document.createElement('strong');name.textContent=p[1];const price=document.createElement('small');price.textContent=yen(p[2])+' / 200g（税込）';details.append(name,price);const qty=document.createElement('input');qty.type='number';qty.min='0';qty.max='100';qty.step='1';qty.value='0';qty.setAttribute('aria-label',p[1]+'の数量（200g単位）');qty.dataset.index=i;qty.addEventListener('input',update);item.append(details,qty);list.append(item)});
+function selected(){return [...list.querySelectorAll('input')].map(el=>({p:products[Number(el.dataset.index)],q:Number(el.value)})).filter(x=>Number.isInteger(x.q)&&x.q>0&&x.q<=100)}
+function update(){const rows=selected();document.getElementById('order-total').textContent=yen(rows.reduce((s,x)=>s+x.p[2]*x.q,0));document.getElementById('order-count').textContent=rows.reduce((s,x)=>s+x.q,0)+'パック（200g単位）';}
+const form=document.getElementById('naizoo-order-form');const msg=document.getElementById('order-message');const submit=document.getElementById('order-submit');
+const date=form.elements.pickupDate;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;
+form.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='';const inputs=[...list.querySelectorAll('input')];if(inputs.some(el=>!Number.isInteger(Number(el.value))||Number(el.value)<0||Number(el.value)>100)){msg.textContent='数量は0〜100の整数で入力してください。';return}const rows=selected();if(!rows.length){msg.textContent='商品を1つ以上選択してください。';return}if(date.value<local){msg.textContent='受取希望日は本日以降を指定してください。';return}const total=rows.reduce((s,x)=>s+x.p[2]*x.q,0);const items=rows.map(x=>x.p[1]+' '+x.q+'パック（'+(x.q*200)+'g） '+yen(x.p[2]*x.q)).join(' / ');const name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim(),pickupTime=form.elements.pickupTime.value,note=form.elements.note.value.trim();if(!name||!phone||!pickupTime){msg.textContent='必須項目を入力してください。';return}if(!confirm('注文内容を送信しますか？\n'+items+'\n合計 '+yen(total)+'\n受取 '+date.value+' '+pickupTime+'\n※送信後、店舗確認をもって注文確定となります。'))return;submit.disabled=true;msg.textContent='送信しています…';try{const payload={name,phone,items,total,pickupDate:date.value,pickupTime,note};await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});msg.textContent='送信処理を行いました。ただしブラウザの制限により受付完了を確認できません。店舗からの確認連絡をお待ちください。連絡がない場合はLINEでお問い合わせください。';form.reset();inputs.forEach(el=>el.value='0');update()}catch(err){msg.textContent='送信できませんでした。通信環境をご確認のうえ、LINEからお問い合わせください。'}finally{submit.disabled=false}});
+update();
+})();
+</script></body>
 </html>
