@@ -214,7 +214,23 @@ async function checkInventory() {
     console.log('在庫データ:', inventory);
 
     inventory.forEach(product => {
-      const index = products.findIndex(p => p[1] === product.name);
+      const aliases = {
+  "牛レバー": "レバー",
+  "牛ハラミ": "ハラミ・サガリ",
+  "牛ミノ": "ミノ",
+  "牛ハチノス": "ハチノス",
+  "牛センマイ刺し": "センマイ刺し",
+  "牛ギアラ": "ギアラ",
+  "牛小腸": "小腸（マルチョウ）",
+  "牛大腸": "大腸（シマチョウ）",
+  "牛ハート": "ハート",
+  "牛タン": "タン",
+  "牛テール": "テール",
+  "牛上レバー": "上レバー"
+};
+const index = products.findIndex(
+  p => p[1] === (aliases[product.name] || product.name)
+);
       if (index === -1) return;
 
       const input = list.querySelector(
