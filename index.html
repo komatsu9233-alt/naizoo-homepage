@@ -204,23 +204,43 @@ function update(){const rows=selected();document.getElementById('order-total').t
 const form=document.getElementById('naizoo-order-form');const msg=document.getElementById('order-message');const submit=document.getElementById('order-submit');
 const date=form.elements.pickupDate;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;
 form.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='';const inputs=[...list.querySelectorAll('input')];if(inputs.some(el=>!Number.isInteger(Number(el.value))||Number(el.value)<0||Number(el.value)>100)){msg.textContent='数量は0〜100の整数で入力してください。';return}const rows=selected();if(!rows.length){msg.textContent='商品を1つ以上選択してください。';return}if(date.value<local){msg.textContent='受取希望日は本日以降を指定してください。';return}const total=rows.reduce((s,x)=>s+x.p[2]*x.q,0);const items=rows.map(x=>x.p[1]+' '+x.q+'パック（'+(x.q*200)+'g） '+yen(x.p[2]*x.q)).join(' / ');const name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim(),pickupTime=form.elements.pickupTime.value,note=form.elements.note.value.trim(),email=form.elements.email.value.trim();if(!name||!phone||!pickupTime){msg.textContent='必須項目を入力してください。';return}if(!confirm('注文内容を送信しますか？\n'+items+'\n合計 '+yen(total)+'\n受取 '+date.value+' '+pickupTime+'\n※送信後、店舗確認をもって注文確定となります。'))return;submit.disabled=true;msg.textContent='送信しています…';try{const payload={name,phone,email,items,total,pickupDate:date.value,pickupTime,note};await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});msg.textContent='送信処理を行いました。ただしブラウザの制限により受付完了を確認できません。店舗からの確認連絡をお待ちください。連絡がない場合はLINEでお問い合わせください。';form.reset();inputs.forEach(el=>el.value='0');update()}catch(err){msg.textContent='送信できませんでした。通信環境をご確認のうえ、LINEからお問い合わせください。'}finally{submit.disabled=false}});
- async function checkInventory(){
 
+async function checkInventory() {
   try {
-
     const response = await fetch(inventoryEndpoint);
+    if (!response.ok) throw new Error('在庫取得エラー');
 
     const inventory = await response.json();
-
     console.log('在庫データ:', inventory);
 
-  } catch(error) {
+    inventory.forEach(product => {
+      const index = products.findIndex(p => p[1] === product.name);
+      if (index === -1) return;
 
+      const input = list.querySelector(
+        `input[data-index="${index}"]`
+      );
+      if (!input) return;
+
+      const item = input.closest('.order-item');
+      const price = item.querySelector('small');
+
+      if (product.stock <= 0) {
+        input.value = '0';
+        input.disabled = true;
+        price.textContent = '売り切れ';
+      } else {
+        input.disabled = false;
+        input.max = Math.min(100, product.stock);
+      }
+    });
+
+    update();
+  } catch (error) {
     console.warn('在庫データを取得できませんでした', error);
-
   }
-
 }
+
 
 checkInventory(); 
 update();
