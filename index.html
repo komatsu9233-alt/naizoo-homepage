@@ -194,6 +194,7 @@ body{background:var(--bg);letter-spacing:.015em}header{background:rgba(16,12,11,
 <script>
 (()=>{
 const endpoint="https://script.google.com/macros/s/AKfycbzFY2Shj7efBVHhqDeOrYwibAk4CQkAPF1HaOPckfmjW9uvL-rcX65Z3xnchw8-nYRg/exec";
+const inventoryEndpoint="https://script.google.com/macros/s/AKfycbwXwJmHKoAYzwTNkR2rTLqqfNyJ-4tLbbEAGWK0gGF57p8Bf2U_iuTWGvyDvh2ucNEY/exec";  
 const products=[["豚内臓メニュー", "豚タン", 500], ["豚内臓メニュー", "豚ノドナンコツ全般", 350], ["豚内臓メニュー", "豚ハツ", 300], ["豚内臓メニュー", "豚ハラミ", 500], ["豚内臓メニュー", "豚レバー", 400], ["豚内臓メニュー", "豚ガツ", 500], ["豚内臓メニュー", "豚大腸", 460], ["豚内臓メニュー", "豚小腸", 380], ["豚内臓メニュー", "豚コブクロ", 500], ["牛内臓・精肉メニュー", "レバー", 700], ["牛内臓・精肉メニュー", "ハラミ・サガリ", 5400], ["牛内臓・精肉メニュー", "ミノ", 700], ["牛内臓・精肉メニュー", "ハチノス", 800], ["牛内臓・精肉メニュー", "センマイ刺し", 1200], ["牛内臓・精肉メニュー", "ギアラ", 600], ["牛内臓・精肉メニュー", "小腸（マルチョウ）", 540], ["牛内臓・精肉メニュー", "大腸（シマチョウ）", 700], ["牛内臓・精肉メニュー", "ハート", 600], ["牛内臓・精肉メニュー", "タン", 6000], ["牛内臓・精肉メニュー", "テール", 700], ["牛内臓・精肉メニュー", "上レバー", 1000], ["牛内臓・精肉メニュー", "牛ほほ肉", 1200], ["牛内臓・精肉メニュー", "牛スジ", 560]];
 const list=document.getElementById('order-products');
 const yen=n=>'¥'+n.toLocaleString('ja-JP');
@@ -203,6 +204,25 @@ function update(){const rows=selected();document.getElementById('order-total').t
 const form=document.getElementById('naizoo-order-form');const msg=document.getElementById('order-message');const submit=document.getElementById('order-submit');
 const date=form.elements.pickupDate;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;
 form.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='';const inputs=[...list.querySelectorAll('input')];if(inputs.some(el=>!Number.isInteger(Number(el.value))||Number(el.value)<0||Number(el.value)>100)){msg.textContent='数量は0〜100の整数で入力してください。';return}const rows=selected();if(!rows.length){msg.textContent='商品を1つ以上選択してください。';return}if(date.value<local){msg.textContent='受取希望日は本日以降を指定してください。';return}const total=rows.reduce((s,x)=>s+x.p[2]*x.q,0);const items=rows.map(x=>x.p[1]+' '+x.q+'パック（'+(x.q*200)+'g） '+yen(x.p[2]*x.q)).join(' / ');const name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim(),pickupTime=form.elements.pickupTime.value,note=form.elements.note.value.trim(),email=form.elements.email.value.trim();if(!name||!phone||!pickupTime){msg.textContent='必須項目を入力してください。';return}if(!confirm('注文内容を送信しますか？\n'+items+'\n合計 '+yen(total)+'\n受取 '+date.value+' '+pickupTime+'\n※送信後、店舗確認をもって注文確定となります。'))return;submit.disabled=true;msg.textContent='送信しています…';try{const payload={name,phone,email,items,total,pickupDate:date.value,pickupTime,note};await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});msg.textContent='送信処理を行いました。ただしブラウザの制限により受付完了を確認できません。店舗からの確認連絡をお待ちください。連絡がない場合はLINEでお問い合わせください。';form.reset();inputs.forEach(el=>el.value='0');update()}catch(err){msg.textContent='送信できませんでした。通信環境をご確認のうえ、LINEからお問い合わせください。'}finally{submit.disabled=false}});
+ async function checkInventory(){
+
+  try {
+
+    const response = await fetch(inventoryEndpoint);
+
+    const inventory = await response.json();
+
+    console.log('在庫データ:', inventory);
+
+  } catch(error) {
+
+    console.warn('在庫データを取得できませんでした', error);
+
+  }
+
+}
+
+checkInventory(); 
 update();
 })();
 </script></body>
