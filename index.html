@@ -211,24 +211,29 @@ const endpoint="https://script.google.com/macros/s/AKfycbzFY2Shj7efBVHhqDeOrYwib
 const inventoryEndpoint="https://script.google.com/macros/s/AKfycbwXwJmHKoAYzwTNkR2rTLqqfNyJ-4tLbbEAGWK0gGF57p8Bf2U_iuTWGvyDvh2ucNEY/exec";  
 const products=[["豚内臓メニュー", "豚タン", 500], ["豚内臓メニュー", "豚ノドナンコツ全般", 350], ["豚内臓メニュー", "豚ハツ", 300], ["豚内臓メニュー", "豚ハラミ", 500], ["豚内臓メニュー", "豚レバー", 400], ["豚内臓メニュー", "豚ガツ", 500], ["豚内臓メニュー", "豚大腸", 460], ["豚内臓メニュー", "豚小腸", 380], ["豚内臓メニュー", "豚コブクロ", 500], ["牛内臓・精肉メニュー", "レバー", 700], ["牛内臓・精肉メニュー", "ハラミ・サガリ", 5400], ["牛内臓・精肉メニュー", "ミノ", 700], ["牛内臓・精肉メニュー", "ハチノス", 800], ["牛内臓・精肉メニュー", "センマイ刺し", 1200], ["牛内臓・精肉メニュー", "ギアラ", 600], ["牛内臓・精肉メニュー", "小腸（マルチョウ）", 540], ["牛内臓・精肉メニュー", "大腸（シマチョウ）", 700], ["牛内臓・精肉メニュー", "ハート", 600], ["牛内臓・精肉メニュー", "タン", 6000], ["牛内臓・精肉メニュー", "テール", 700], ["牛内臓・精肉メニュー", "上レバー", 1000], ["牛内臓・精肉メニュー", "牛ほほ肉", 1200], ["牛内臓・精肉メニュー", "牛スジ", 560]];
 const list=document.getElementById('order-products');
+let inventoryReady=false;
 const yen=n=>'¥'+n.toLocaleString('ja-JP');
-products.forEach((p,i)=>{const item=document.createElement('label');item.className='order-item';const details=document.createElement('span');const name=document.createElement('strong');name.textContent=p[1];const price=document.createElement('small');price.textContent=yen(p[2])+' / 200g（税込）';details.append(name,price);const qty=document.createElement('input');qty.type='number';qty.min='0';qty.max='100';qty.step='1';qty.value='0';qty.setAttribute('aria-label',p[1]+'の数量（200g単位）');qty.dataset.index=i;qty.addEventListener('input',update);item.append(details,qty);list.append(item)});
-function selected(){return [...list.querySelectorAll('input')].map(el=>({p:products[Number(el.dataset.index)],q:Number(el.value)})).filter(x=>Number.isInteger(x.q)&&x.q>0&&x.q<=100)}
+products.forEach((p,i)=>{const item=document.createElement('label');item.className='order-item';const details=document.createElement('span');const name=document.createElement('strong');name.textContent=p[1];const price=document.createElement('small');price.textContent=yen(p[2])+' / 200g（税込）';details.append(name,price);const qty=document.createElement('input');qty.type='number';qty.min='0';qty.max='0';qty.disabled=true;qty.step='1';qty.value='0';qty.setAttribute('aria-label',p[1]+'の数量（200g単位）');qty.dataset.index=i;qty.addEventListener('input',()=>{if(Number(qty.value)>Number(qty.max))qty.value=qty.max;update()});item.append(details,qty);list.append(item)});
+function selected(){return [...list.querySelectorAll('input')].map(el=>({p:products[Number(el.dataset.index)],q:Number(el.value),max:Number(el.max),disabled:el.disabled})).filter(x=>!x.disabled&&Number.isInteger(x.q)&&x.q>0&&x.q<=x.max)}
 function update(){const rows=selected();document.getElementById('order-total').textContent=yen(rows.reduce((s,x)=>s+x.p[2]*x.q,0));document.getElementById('order-count').textContent=rows.reduce((s,x)=>s+x.q,0)+'パック（200g単位）';}
 const form=document.getElementById('naizoo-order-form');const msg=document.getElementById('order-message');const submit=document.getElementById('order-submit');
 const date=form.elements.pickupDate;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;
-form.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='';const inputs=[...list.querySelectorAll('input')];if(inputs.some(el=>!Number.isInteger(Number(el.value))||Number(el.value)<0||Number(el.value)>100)){msg.textContent='数量は0〜100の整数で入力してください。';return}const rows=selected();if(!rows.length){msg.textContent='商品を1つ以上選択してください。';return}if(date.value<local){msg.textContent='受取希望日は本日以降を指定してください。';return}const total=rows.reduce((s,x)=>s+x.p[2]*x.q,0);const items=rows.map(x=>x.p[1]+' '+x.q+'パック（'+(x.q*200)+'g） '+yen(x.p[2]*x.q)).join(' / ');const name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim(),pickupTime=form.elements.pickupTime.value,note=form.elements.note.value.trim(),email=form.elements.email.value.trim();if(!name||!phone||!pickupTime){msg.textContent='必須項目を入力してください。';return}if(!confirm('注文内容を送信しますか？\n'+items+'\n合計 '+yen(total)+'\n受取 '+date.value+' '+pickupTime+'\n※送信後、店舗確認をもって注文確定となります。'))return;submit.disabled=true;msg.textContent='送信しています…';try{const payload={name,phone,email,items,total,pickupDate:date.value,pickupTime,note};await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});msg.textContent='送信処理を行いました。ただしブラウザの制限により受付完了を確認できません。店舗からの確認連絡をお待ちください。連絡がない場合はLINEでお問い合わせください。';form.reset();inputs.forEach(el=>el.value='0');update()}catch(err){msg.textContent='送信できませんでした。通信環境をご確認のうえ、LINEからお問い合わせください。'}finally{submit.disabled=false}});
+form.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='';if(!inventoryReady){msg.textContent='在庫を確認できません。ページを再読み込みしてください。';return}const inputs=[...list.querySelectorAll('input')];if(inputs.some(el=>!Number.isInteger(Number(el.value))||Number(el.value)<0||Number(el.value)>Number(el.max)||(el.disabled&&Number(el.value)>0))){msg.textContent='在庫数以内の整数で入力してください。';return}const rows=selected();if(!rows.length){msg.textContent='商品を1つ以上選択してください。';return}if(date.value<local){msg.textContent='受取希望日は本日以降を指定してください。';return}const total=rows.reduce((s,x)=>s+x.p[2]*x.q,0);const items=rows.map(x=>x.p[1]+' '+x.q+'パック（'+(x.q*200)+'g） '+yen(x.p[2]*x.q)).join(' / ');const name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim(),pickupTime=form.elements.pickupTime.value,note=form.elements.note.value.trim(),email=form.elements.email.value.trim();if(!name||!phone||!pickupTime){msg.textContent='必須項目を入力してください。';return}if(!confirm('注文内容を送信しますか？\n'+items+'\n合計 '+yen(total)+'\n受取 '+date.value+' '+pickupTime+'\n※送信後、店舗確認をもって注文確定となります。'))return;submit.disabled=true;msg.textContent='最新の在庫を確認しています…';try{const ok=await checkInventory();if(!ok||rows.some(x=>{const el=inputs[products.indexOf(x.p)];return el.disabled||x.q>Number(el.max)||Number(el.value)!==x.q;})){msg.textContent='在庫が変動したか、在庫を確認できませんでした。数量をご確認のうえ再度お試しください。';return}msg.textContent='送信しています…';const payload={name,phone,email,items,total,pickupDate:date.value,pickupTime,note};await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});msg.textContent='送信処理を行いました。ただしブラウザの制限により受付完了を確認できません。店舗からの確認連絡をお待ちください。連絡がない場合はLINEでお問い合わせください。';form.reset();inputs.forEach(el=>el.value='0');update()}catch(err){msg.textContent='送信できませんでした。通信環境をご確認のうえ、LINEからお問い合わせください。'}finally{submit.disabled=!inventoryReady}});
 
 async function checkInventory() {
+  inventoryReady=false;
   try {
-    const response = await fetch(inventoryEndpoint);
+    const response = await fetch(inventoryEndpoint,{cache:"no-store"});
     if (!response.ok) throw new Error('在庫取得エラー');
 
     const inventory = await response.json();
     console.log('在庫データ:', inventory);
 
+    if(!Array.isArray(inventory))throw new Error('在庫形式エラー');
+    const seen=new Set();
     inventory.forEach(product => {
       const aliases = {
+  "豚ノドナンコツ": "豚ノドナンコツ全般",
   "牛レバー": "レバー",
   "牛ハラミ": "ハラミ・サガリ",
   "牛ミノ": "ミノ",
@@ -251,28 +256,41 @@ const index = products.findIndex(
         `input[data-index="${index}"]`
       );
       if (!input) return;
+      const stock=Number(product.stock);
+      if(product.stock===null||product.stock===''||!Number.isSafeInteger(stock)||stock<0)return;
+      seen.add(index);
 
       const item = input.closest('.order-item');
       const price = item.querySelector('small');
 
-      if (product.stock <= 0) {
+      if (stock <= 0) {
         input.value = '0';
         input.disabled = true;
+        input.max='0';
         price.textContent = '売り切れ';
       } else {
         input.disabled = false;
-        input.max = Math.min(100, product.stock);
+        input.max = String(Math.min(100, stock));
+        price.textContent=yen(products[index][2])+' / 200g（税込）';
+        if(Number(input.value)>Number(input.max))input.value=input.max;
       }
     });
 
+    list.querySelectorAll('input').forEach(el=>{if(!seen.has(Number(el.dataset.index))){el.disabled=true;el.max='0';el.value='0';el.closest('.order-item').querySelector('small').textContent='在庫確認中';}});
+    inventoryReady=seen.size>0;
     update();
+    return inventoryReady;
   } catch (error) {
     console.warn('在庫データを取得できませんでした', error);
+    list.querySelectorAll('input').forEach(el=>{el.disabled=true;el.max='0';el.value='0';el.closest('.order-item').querySelector('small').textContent='在庫確認不可';});
+    update();
+    return false;
   }
 }
 
 
-checkInventory(); 
+submit.disabled=true;
+checkInventory().then(ok=>{submit.disabled=!ok;if(!ok)msg.textContent='在庫を取得できません。ページを再読み込みしてください。';});
 update();
 })();
 </script></body>
